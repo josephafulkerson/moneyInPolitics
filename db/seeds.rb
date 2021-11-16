@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+legislator = Legislator.create(name: 'Gorp', party: 'republican', website_url: "google.com")
+
+legislator2 = Legislator.create(name: 'Thorp', party: 'democrat', website_url: "yahoo.com")
+
+contribution = Contribution.create(organization: "ASPCA", amount: 1000, legislator_id: 1)
+
+contribution2 = Contribution.create(organization: "Red Cross", amount: 1000, legislator_id: 2)
+

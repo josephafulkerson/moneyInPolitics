@@ -101,7 +101,7 @@ GEM
     msgpack (1.4.2)
     multi_xml (0.6.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     opensecrets (1.0.0)
       httparty (~> 0.13.3)
@@ -182,6 +182,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
