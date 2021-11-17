@@ -12,4 +12,9 @@ class LegislatorsController < ApplicationController
         legislator = Legislator.find_by(id: params[:id])
         legislator.destroy
     end
+
+    def highest_contribution
+        legislator = Legislator.order(contributions: :desc).first
+        render json: legislator
+    end
 end

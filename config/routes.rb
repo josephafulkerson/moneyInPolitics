@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :contributions, only: [:index, :show]
   resources :legislators, only: [:index, :show, :destroy]
 
+  get 'legislators/highest-contribution', to: 'legislators#highest-contribution'
+
   post '/signup', to: 'users#create'
  
 
