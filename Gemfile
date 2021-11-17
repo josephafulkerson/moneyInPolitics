@@ -51,3 +51,11 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 gem "opensecrets", "~> 1.0"
+
+gem "rest-client", "~> 2.1"
+
+gem "dotenv-rails", "~> 2.7"
+
+gem "figaro", "~> 1.2"
+
+gem "json", "~> 1.8"
