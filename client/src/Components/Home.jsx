@@ -1,16 +1,24 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 
 
 const Home = () => {
 
-    useEffect(() => {
-        fetch('/legislators')
-        .then(r => r.json())
-        .then(data => console.log(data))
-    }, [])
+
     return (
         <div>
-            
+            <form>
+            <label>Search For legislators</label>
+            <textarea type="text"></textarea>
+            </form>
+            <form>
+                <label>Filter by Party</label>
+                <select>
+                    <option value="R">Republican</option>
+                    <option value="D">Democrat</option>
+                    <option value="I">Independent</option>
+                </select>
+            </form>
+            <button>See All Legislators</button>
         </div>
     )
 }
