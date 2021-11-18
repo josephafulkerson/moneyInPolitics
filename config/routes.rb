@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'legislators/highest-contribution', to: 'legislators#highest-contribution'
 
   post '/signup', to: 'users#create'
+  get '/me', to: 'users#show'
  
 
   post '/login', to: 'sessions#create'
