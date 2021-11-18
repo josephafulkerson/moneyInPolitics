@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    before_action :authorize, only: [:show]
+    # before_action :authorize
+    skip_before_action :confirm_authentication, only: [:create]
 
     def create
         user = User.create(user_params)

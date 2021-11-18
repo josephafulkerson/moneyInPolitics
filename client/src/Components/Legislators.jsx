@@ -1,4 +1,5 @@
 import React from "react";
+import Button from '@mui/material/Button';
 
 const Legislators = ({legislators}) => {
 
@@ -8,6 +9,7 @@ const Legislators = ({legislators}) => {
       <h3>{name}</h3>
       <h5>{party}</h5>
       <p>{website_url}</p>
+      <Button variant="contained">👀Add {name} to Watchlist</Button>
     </>
   );
 };

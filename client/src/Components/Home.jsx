@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react'
+import LegislatorContainer from './LegislatorContainer'
+import Button from '@mui/material/Button';
 
 
 const Home = () => {
 
-
+const [ showList, setShowList ] = useState(false)
     return (
         <div>
             <form>
@@ -18,7 +20,8 @@ const Home = () => {
                     <option value="I">Independent</option>
                 </select>
             </form>
-            <button>See All Legislators</button>
+            <Button variant="contained" onClick={() => setShowList(!showList)}>See All Legislators</Button>
+            {showList ? <LegislatorContainer /> : null}
         </div>
     )
 }

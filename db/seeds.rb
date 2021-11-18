@@ -37,3 +37,4 @@ contribution = Contribution.create(organization: "ASPCA", amount: 1000, legislat
 
 contribution2 = Contribution.create(organization: "Red Cross", amount: 1000, legislator_id: 2)
 
+user = User.create(username: "test", password: "password")
