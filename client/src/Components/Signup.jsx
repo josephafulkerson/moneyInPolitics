@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useHistory, Link } from 'react-router-dom'
+import {  Redirect, useHistory, Link } from 'react-router-dom'
 const Signup = ({setCurrentUser}) => {
     const history = useHistory()
     const [username, setUsername] = useState('')
@@ -28,12 +28,16 @@ const Signup = ({setCurrentUser}) => {
             } else {
               res.json().then(errors => {
                 console.error(errors)
+                  history.push("/home");
               })
             }
           })
       }
+     
+    
     return (
         <div>
+         
             <form onSubmit={handleSubmit}>
                 <h2>Create an Account</h2>
                 <label>Username</label>
@@ -42,7 +46,7 @@ const Signup = ({setCurrentUser}) => {
                 <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <label>Confirm Password</label>
                 <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
-                <button type="submit" >Submit</button>
+                <button type="submit"  >Submit</button>
             </form>
         </div>
     )

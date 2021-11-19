@@ -6,9 +6,6 @@ const Login = ({ setCurrentUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const redirect = () => {
-    history.push("/");
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
