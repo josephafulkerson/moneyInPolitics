@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Redirect, useHistory, Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const Login = ({ setCurrentUser }) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,31 +35,30 @@ const Login = ({ setCurrentUser }) => {
       <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <p>
-          <label htmlFor="username">Username</label>
-          <input
+          <TextField
+            label="Username"
             type="text"
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
+          ></TextField>
         </p>
-        <p>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name=""
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </p>
-        <p>
-          <button type="submit">Log In</button>
-        </p>
-        <p>-- or --</p>
-        <p>
-          <Link to="/signup">Sign Up</Link>
-        </p>
+        <TextField
+          label="Password"
+          type="password"
+          name=""
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></TextField>
+
+        <Button size="small" variant="contained" type="submit">
+          Log In
+        </Button>
       </form>
+      <p>👇 or 👇</p>
+      <p>
+        <Link to="/signup">Sign Up</Link>
+      </p>
     </div>
   );
 };

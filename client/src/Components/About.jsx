@@ -8,6 +8,7 @@ const About = () => {
 
             <h3>Born from Curiosity</h3>
             <p>Although much of this information found on this site can be accessed in many places on the internet, we wanted to provide voters with a synthesized collection of current legislaters and thier top contributors. Where a legislator is getting their contributions and in what amounts may better inform you, the voter, of the policy changes this legislator may be in favor of. Money talks, right? Find out what legislators have sold their votes. </p>
+            <img src="http://www.jackwiens.com/wp-content/uploads/2018/08/Lincoln-and-Money-Bags-cartoon-867x1024.jpg" width="450px" height="500px"/>
         </div>
     )
 }

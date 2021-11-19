@@ -1,5 +1,8 @@
 import React, {useState} from 'react'
 import {  Redirect, useHistory, Link } from 'react-router-dom'
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+
 const Signup = ({setCurrentUser}) => {
     const history = useHistory()
     const [username, setUsername] = useState('')
@@ -24,11 +27,13 @@ const Signup = ({setCurrentUser}) => {
             if (res.ok) {
               res.json().then(user => {
                 setCurrentUser(user)
+                history.push('/')
               })
             } else {
               res.json().then(errors => {
                 console.error(errors)
-                  history.push("/home");
+                alert('Yo, something is wrong on server side')
+                  // history.push("/home");
               })
             }
           })
@@ -40,13 +45,16 @@ const Signup = ({setCurrentUser}) => {
          
             <form onSubmit={handleSubmit}>
                 <h2>Create an Account</h2>
-                <label>Username</label>
-                <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
-                <label>Password</label>
-                <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <label>Confirm Password</label>
-                <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
-                <button type="submit"  >Submit</button>
+                <TextField label="Username" type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}>
+                {/* <input type="text" name="username" value={username} onChange={(e) => setUsername(e.target.value)}/> */}
+                </TextField>
+                <TextField label="Password" type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)}>
+                {/* <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)}/> */}
+                </TextField>
+                <TextField label=" Confirm Password" type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}>
+                {/* <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/> */}
+                </TextField>
+                <Button size="small" variant="contained" type="submit">Submit</Button>
             </form>
         </div>
     )
