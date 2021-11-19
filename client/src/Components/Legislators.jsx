@@ -1,22 +1,37 @@
-import React, {useState} from "react";
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
+import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
 
+const Legislators = ({ legislators }) => {
+  const [isWatching, setIsWatching] = useState(false);
+  const { name, party, website_url } = legislators;
 
-const Legislators = ({legislators}) => {
+  const Item = styled(Paper)(({ theme }) => ({
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  }));
 
-  const [ isWatching, setIsWatching ] = useState(false)
-    const { name, party, website_url } = legislators
   return (
-    <>
-    <Grid container rowSpacing = {1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      <h3>{name}</h3>
-      <h5>{party}</h5>
-      <p>{website_url}</p>
-      <Button size="small" variant="contained" onClick={() => setIsWatching(!isWatching)}>{isWatching ? `👀 Watching ${name}...` : `Add ${name} to Watchlist`}</Button>
-      </Grid>
-    </>
+    <div className="legs">
+              <h3>{name}</h3>
+              <Button size='small' variant="contained" color="success">💰 Contributions</Button>
+              <h5>{party}</h5>
+              <p>{website_url}</p>
+              <Button
+                size="small"
+                variant="contained"
+                onClick={() => setIsWatching(!isWatching)}
+              >
+                {isWatching
+                  ? `👀 Watching ${name}...`
+                  : `Add ${name} to Watchlist`}
+              </Button>
+    </div>
   );
 };
 

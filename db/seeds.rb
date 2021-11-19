@@ -1,6 +1,6 @@
 # require 'rest-client'
-Legislator.destroy_all
-Contribution.destroy_all
+# Legislator.destroy_all
+# Contribution.destroy_all
 def open_secrets_key
     ENV["API_KEY"]
 end
