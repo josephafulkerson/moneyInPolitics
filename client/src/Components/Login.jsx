@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Redirect, useHistory, Link } from "react-router-dom";
 
-const Login = ({setCurrentUser}) => {
+const Login = ({ setCurrentUser }) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const redirect = () => {
     history.push("/");
   };
@@ -28,41 +29,41 @@ const Login = ({setCurrentUser}) => {
         });
       }
     });
-
-    return (
-      <div>
-        <Redirect to="/" />
-        <form onSubmit={handleSubmit}>
-          <h1>Log In</h1>
-          <p>
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </p>
-          <p>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name=""
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </p>
-          <p>
-            <button type="submit">Log In</button>
-          </p>
-          <p>-- or --</p>
-          <p>
-            <Link to="/signup">Sign Up</Link>
-          </p>
-        </form>
-      </div>
-    );
   };
+
+  return (
+    <div>
+      <Redirect to="/" />
+      <form onSubmit={handleSubmit}>
+        <h1>Log In</h1>
+        <p>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </p>
+        <p>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </p>
+        <p>
+          <button type="submit">Log In</button>
+        </p>
+        <p>-- or --</p>
+        <p>
+          <Link to="/signup">Sign Up</Link>
+        </p>
+      </form>
+    </div>
+  );
 };
 
 export default Login;

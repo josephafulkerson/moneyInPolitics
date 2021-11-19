@@ -42,6 +42,7 @@ const Signup = ({setCurrentUser}) => {
                 <input type="password" name="" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <label>Confirm Password</label>
                 <input type="password" name="password_confirmation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
+                <button type="submit" >Submit</button>
             </form>
         </div>
     )
