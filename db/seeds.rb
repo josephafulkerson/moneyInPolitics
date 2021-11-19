@@ -32,9 +32,22 @@ Contribution.destroy_all
 legislator = Legislator.create(name: 'Gorp', party: 'republican', website_url: "google.com")
 
 legislator2 = Legislator.create(name: 'Thorp', party: 'democrat', website_url: "yahoo.com")
+legislator3 = Legislator.create(name: 'Gumber Brunchworth', party: 'democrat', website_url: "yahoo.com")
+legislator4 = Legislator.create(name: 'Borch Horstley', party: 'democrat', website_url: "yahoo.com")
+legislator5 = Legislator.create(name: 'Orval Faubus', party: 'democrat', website_url: "yahoo.com")
+legislator6 = Legislator.create(name: 'Burm Snart', party: 'democrat', website_url: "yahoo.com")
+legislator7 = Legislator.create(name: 'Mungus Horks', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Opus Drumbins', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Hort Wessel', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Eaglefire Collins Jr', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Hurgbin Sleathers', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Rhombus Fournier', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Tex Grebner', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Bilbous Honcho', party: 'democrat', website_url: "yahoo.com")
+legislator8 = Legislator.create(name: 'Chisper Flunft', party: 'democrat', website_url: "yahoo.com")
 
 contribution = Contribution.create(organization: "ASPCA", amount: 1000, legislator_id: 1)
-
 contribution2 = Contribution.create(organization: "Red Cross", amount: 1000, legislator_id: 2)
+contribution3 = Contribution.create(organization: "Pork-Based Vape Juice", amount: 10000, legislator_id: 2)
 
 user = User.create(username: "test", password: "password")
