@@ -1,46 +1,35 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
+import Button from "@material-ui/core/Button";
+import ContributionsContainer from "./ContributionsContainer";
 import { Link } from "react-router-dom";
 
-const Legislators = ({ legislators, setActiveLegislator }) => {
-  const [isWatching, setIsWatching] = useState(false);
+const Legislators = ({ legislators, setActiveLegislator, activeLegislator, contributions }) => {
   const { name, party, website_url } = legislators;
+  const [ showList, setShowList ] = useState(false)
 
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-  }));
+  function handleContributions() {
+    // setActiveLegislator(legislators.id)
+    setShowList(!showList)
+  }
 
   return (
     <div className="legs">
-      <h3>{name}</h3>
-      <Link to="/contributions">
+      <h2>{name}</h2>
+      
         <Button
-          onClick={() => setActiveLegislator(legislators.id)}
+          onClick={handleContributions}
           size="small"
           variant="contained"
           color="success"
         >
-          💰 Contributions
+          💰 <strong>Contributions</strong> 💰
         </Button>
-      </Link>
-      <h5>{party}</h5>
+        {showList  ? <ContributionsContainer 
+                        legislator={legislators} contributions={contributions}/> : null}
+      <h3>{party}</h3>
       <a href={website_url}>{website_url}</a>
-      <br />
-      <br />
-      <Button
-        size="small"
-        variant="contained"
-        onClick={() => setIsWatching(!isWatching)}
-      >
-        {isWatching ? `👀 Watching ${name}...` : `Add ${name} to Watchlist`}
-      </Button>
+      <br/>
+      <br/>
     </div>
   );
 };

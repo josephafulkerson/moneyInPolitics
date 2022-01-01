@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Home from "./Home";
-import NavBar from "./NavBar";
 import About from "./About";
-import ContributionsContainer from "./ContributionsContainer";
 import { Route, Switch } from "react-router-dom";
 
 const Authenticated = () => {
   const [legislators, setLegislators] = useState([]);
   const [contributions, setContributions] = useState([]);
-  // house an id
   const [activeLegislator, setActiveLegislator] = useState(null);
 
   useEffect(() => {
@@ -23,6 +20,7 @@ const Authenticated = () => {
       .then((data) => setContributions(data));
   }, []);
 
+
   return (
     <div>
       <Switch>
@@ -30,17 +28,14 @@ const Authenticated = () => {
           <Home
             legislators={legislators}
             setActiveLegislator={setActiveLegislator}
+            contributions={contributions}
+            activeLegislator={activeLegislator}
           />
         </Route>
         <Route exact path="/about">
           <About />
         </Route>
         <Route exact path="/contributions">
-          <ContributionsContainer
-            contributions={contributions}
-            legislators={legislators}
-            activeLegislator={activeLegislator}
-          />
         </Route>
       </Switch>
     </div>

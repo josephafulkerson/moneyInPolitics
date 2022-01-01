@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
 import Contributions from "./Contributions";
 
-
-const ContributionsContainer = ({ contributions, activeLegislator }) => {
-  const filtered = () =>
-    contributions.filter(
-      (contribution) => contribution.legislator.id == activeLegislator
-    );
+const ContributionsContainer = ({ legislator, contributions, activeLegislator }) => {
+  
+  // console.log('legislator', legislator)
+  // console.log('contributions', contributions)
+  // const filtered = () =>
+  //   contributions.filter((c) => c.legislator_id == legislator);
 
   return (
-    <div>
-      {filtered().map((c) => (
-        <Contributions contributions={c} />
-      ))}
-    </div>
+    <>
+      <div>
+        {/* {filtered().map((c) => ( */}
+        {legislator.contributions.map(c => <Contributions legislator={c}/>) }
+          
+        {/* ))} */}
+      </div>
+    </>
   );
 };
 

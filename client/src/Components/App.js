@@ -3,42 +3,47 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Authenticated from "./Authenticated";
 import Unauthenticated from "./Unauthenticated";
 import NavBar from "./NavBar";
-
-// const userResponse = {
-//   id: 1,
-//   username: "test",
-//   password_digest:
-//     "$2a$12$B8ADJumQYUQndjNkWhPmo.8P8VuzYLo8WH15I6/9NU57Ty.Y6XuSO",
-// };
-
-// const respOK = false;
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import "./index.css";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
 
+  const theme = createMuiTheme({
+    typography: {
+      fontFamily: ["JetBrains Mono", "monospace"].join(","),
+    },
+  });
+
   useEffect(() => {
-    // console.log('attempting to fetch')
-    // fetch("/me").then(r => console.log(r))
-    // if (respOK) {
-    //   setCurrentUser(userResponse);
-    //   setAuthChecked(true);
-    // } else {
-    //   setAuthChecked(false);
-    // }
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setAuthChecked(true);
+        });
+      } else {
+        setAuthChecked(false);
+      }
+    });
   }, []);
 
-  // console.log("vals", "loginInAs:", currentUser, authChecked);
-  // if (!authChecked) {
-  //   return <div></div>;
-  // }
+ 
+
   return (
-    <>
-      <Router>
-        <NavBar setCurrentUser={setCurrentUser}/>
-        {currentUser ? <Authenticated /> : <Unauthenticated setCurrentUser={setCurrentUser} />}
-      </Router>
-    </>
+    <div>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <NavBar setCurrentUser={setCurrentUser} />
+            {currentUser ? (
+              <Authenticated />
+            ) : (
+              <Unauthenticated setCurrentUser={setCurrentUser} />
+            )}
+          </Router>
+        </ThemeProvider>
+    </div>
   );
 }
 

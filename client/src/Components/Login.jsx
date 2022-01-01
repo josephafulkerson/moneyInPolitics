@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect, useHistory, Link } from "react-router-dom";
-import Button from "@mui/material/Button";
+import Button from "@material-ui/core/Button";
 import TextField from "@mui/material/TextField";
 
 const Login = ({ setCurrentUser }) => {
@@ -33,30 +33,41 @@ const Login = ({ setCurrentUser }) => {
     <div>
       <Redirect to="/" />
       <form onSubmit={handleSubmit}>
-        <h1>Log In</h1>
-        <p>
+        <h1 className="signupAcct">Log In</h1>
+        <div className="signup">
           <TextField
+            sx={{ mx: 10}}
+            variant="standard"
             label="Username"
             type="text"
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           ></TextField>
-        </p>
-        <TextField
-          label="Password"
-          type="password"
-          name=""
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></TextField>
 
-        <Button size="small" variant="contained" type="submit">
+          <TextField
+            variant="standard"
+            label="Password"
+            type="password"
+            name=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></TextField>
+        </div>
+
+        <Button
+          id="loginBttn"
+          size="small"
+          variant="contained"
+          type="submit"
+          style={{ backgroundColor: "#008000", color: "#ffffff" }}
+        >
           Log In
         </Button>
       </form>
-      <p>👇 or 👇</p>
-      <p>
+      <br />
+      <br />
+      <p id="suLnk">
         <Link to="/signup">Sign Up</Link>
       </p>
     </div>

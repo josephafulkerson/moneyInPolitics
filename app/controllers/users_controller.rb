@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # before_action :authorize
+
     skip_before_action :confirm_authentication, only: [:create]
 
     def create
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+            render json: { errors: user.errors.full_messages }, status: 422
         end
     end
 
