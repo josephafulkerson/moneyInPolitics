@@ -9,17 +9,18 @@ const Authenticated = () => {
   const [activeLegislator, setActiveLegislator] = useState(null);
 
   useEffect(() => {
-    fetch("/legislators")
+    fetch("/api/legislators")
       .then((r) => r.json())
       .then((data) => setLegislators(data));
   }, []);
 
+
+
   useEffect(() => {
-    fetch("/contributions")
+    fetch("/api/contributions")
       .then((resp) => resp.json())
       .then((data) => setContributions(data));
   }, []);
-
 
   return (
     <div>

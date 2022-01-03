@@ -10,7 +10,7 @@ const Login = ({ setCurrentUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("/login", {
+    fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ const Login = ({ setCurrentUser }) => {
         });
       } else {
         res.json().then((errors) => {
-          console.error(errors);
+          alert(errors.error);
         });
       }
     });

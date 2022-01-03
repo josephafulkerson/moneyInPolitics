@@ -11,7 +11,7 @@ const Signup = ({ setCurrentUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("/signup", {
+    fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

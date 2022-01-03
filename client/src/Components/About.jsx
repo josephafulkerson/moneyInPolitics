@@ -12,6 +12,8 @@ const About = () => {
           name, or filter legislators by party affiliation. You can then visit
           their website by clicking the link on their card, or view their top
           ten contributors by donation value.
+          <br/>
+          <p>* Accurate data as of 1/3/2022</p>
         </p>
       </div>
       <br />

@@ -1,4 +1,4 @@
-class ContributionsController < ApplicationController
+class Api::ContributionsController < ApplicationController
     def index
         render json: Contribution.all
     end

@@ -6,7 +6,7 @@ const Contributions = ({ legislator }) => {
     <>
       
         <h4>
-          {organization} : <em>${amount}</em>{" "}
+        {organization} : <em>${amount}</em>{" "}
         </h4>
      
     </>

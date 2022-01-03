@@ -6,7 +6,7 @@ import { Nav, NavLink, NavMenu } from "./NavBarElements";
 const NavBar = ({ setCurrentUser }) => {
   const history = useHistory();
   const handleLogout = () => {
-    fetch("/logout", {
+    fetch("/api/logout", {
       method: "DELETE",
     }).then((r) => r.json());
     setCurrentUser(null);

@@ -1,4 +1,4 @@
-class LegislatorsController < ApplicationController
+class Api::LegislatorsController < ApplicationController
     def index
         render json: Legislator.all
     end

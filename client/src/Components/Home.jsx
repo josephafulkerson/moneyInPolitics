@@ -7,14 +7,18 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 const Home = ({ legislators, setActiveLegislator, contributions, activeLegislator }) => {
+
   const [searchTerm, setSearch] = useState("");
   const [searchParty, setParty] = useState("");
+
 
   const filteredItems = legislators.filter(
     (legislatorObj) =>
       legislatorObj.party.includes(searchParty) &&
       legislatorObj.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  
   return (
     <>
       <div className="homeMenu">
